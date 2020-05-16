@@ -1,0 +1,286 @@
+@media (min-width: 1000px) {
+  .person {
+    display: grid;
+    grid-template-columns: 1.2fr 8fr 1.2fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .person {
+    display: grid;
+    grid-template-columns: 0.4fr 8fr 0.4fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .person {
+    display: grid;
+    grid-template-columns: 0.4fr 9.6fr 0.4fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .person {
+    display: grid;
+    grid-template-columns: 0.2fr 10fr 0.2fr;
+  }
+}
+
+/* BIOGRAPHY */
+.biography {
+  margin-top: 5%;
+  grid-column-start: 2;
+  display: flex;
+  justify-content: space-between;
+  transition: max-height 2000ms ease-in;
+}
+
+.biography .person-image {
+  flex-basis: 20%;
+  height: auto;
+}
+
+.person-image img {
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+
+.biography-details {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 75%;
+}
+
+.biography-details .person-name {
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.biography-details .social-icon {
+  font-size: 36px;
+}
+
+.biography-details .social-icon:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 100ms ease-in;
+}
+
+.biography-details .biography-title {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+
+.biography-details .biography-text {
+  color: white;
+  font-size: 1.2em;
+}
+
+.biography-arrow-container {
+  grid-column-start: 2;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4%;
+  visibility: hidden;
+}
+
+.biography-arrow-down {
+  color: #c7493a;
+  align-self: center;
+}
+
+.biography-arrow-down:hover {
+  opacity: 0.8;
+  transition: opacity 200ms ease-in;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .biography-details .person-name {
+    font-size: 1.6em;
+  }
+
+  .biography-details .biography-title {
+    font-size: 1.3em;
+  }
+
+  .biography-details .biography-text {
+    color: white;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 800px) {
+  .biography {
+    display: flex;
+    flex-direction: column;
+    max-height: none;
+  }
+
+  .biography .person-image {
+    width: 40%;
+    height: auto;
+    align-self: center;
+  }
+
+  .biography-details .person-name {
+    font-size: 1.4em;
+  }
+
+  .biography-details .biography-title {
+    font-size: 1.2em;
+  }
+
+  .biography-details .biography-text {
+    color: white;
+    font-size: 1em;
+  }
+
+  .biography-details .social-icon {
+    font-size: 24px;
+  }
+
+  .biography-arrow-container {
+    margin-bottom: 2%;
+  }
+}
+
+/* PERSONAL DETAILS */
+.personal-details {
+  margin-top: 1%;
+  margin-bottom: 5%;
+  grid-column-start: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-details div {
+  color: #c7493a;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.personal-details div span {
+  color: white;
+  margin-left: 0.5em;
+}
+
+@media (max-width: 1200px) {
+  .personal-details div {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 800px) {
+  .personal-details div {
+    font-size: 1em;
+    margin-bottom: 2%;
+  }
+}
+
+/* FILMOGRAPHY */
+.filmography {
+  grid-column-start: 2;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1%;
+  margin-bottom: 3.5%;
+  max-height: 72vh;
+  overflow: hidden;
+}
+
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5%;
+}
+
+.project .project-title {
+  flex-basis: 50%;
+  color: #c7493a;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+
+.project .project-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.project .project-date {
+  flex-basis: 50%;
+  color: white;
+  font-size: 1.2em;
+}
+
+.project .project-person-role {
+  color: white;
+  font-size: 1.2em;
+}
+
+@media (max-width: 1200px) {
+  .project .project-title {
+    flex-basis: 60%;
+    font-size: 1.1em;
+  }
+
+  .project .project-date {
+    flex-basis: 40%;
+    font-size: 1.1em;
+  }
+
+  .project .project-person-role {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 800px) {
+  .project .project-title {
+    flex-basis: 70%;
+    font-size: 1em;
+  }
+
+  .project .project-date {
+    flex-basis: 30%;
+    font-size: 1em;
+  }
+
+  .project .project-person-role {
+    font-size: 1em;
+  }
+}
+
+/* PICTURES */
+.pictures {
+  grid-column-start: 2;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.pictures img {
+  margin-top: 0.5%;
+  margin-bottom: 1%;
+  margin-right: 0.25%;
+}
+
+.pictures img:hover {
+  outline: 2px solid #c7493a;
+  cursor: pointer;
+  transition-duration: 150ms;
+}
+
+@media (max-width: 800px) {
+  .pictures img {
+    width: 30%;
+  }
+}

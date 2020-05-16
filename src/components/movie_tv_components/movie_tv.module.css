@@ -1,0 +1,638 @@
+@media (min-width: 1000px) {
+  .page-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 8fr 1.2fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .page-grid {
+    display: grid;
+    grid-template-columns: 0.4fr 8fr 0.4fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .page-grid {
+    display: grid;
+    grid-template-columns: 0.4fr 9.6fr 0.4fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-grid {
+    display: grid;
+    grid-template-columns: 0.2fr 10fr 0.2fr;
+  }
+}
+
+/* OVERVIEW */
+.overview {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  grid-column-start: 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.poster {
+  flex-basis: 20%;
+  height: auto;
+}
+
+.poster img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  display: flex;
+  flex-basis: 75%;
+  flex-direction: column;
+}
+
+.info .title {
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.info .year {
+  color: white;
+  font-size: 1.4em;
+  margin-left: 8px;
+}
+
+.info .genre {
+  color: #c7493a;
+  font-size: 1.1em;
+  margin-top: 0.5%;
+  font-weight: lighter;
+}
+
+.plot {
+  margin-top: 1.4%;
+}
+
+.plot span {
+  color: white;
+  font-size: 1.4em;
+}
+
+@media (max-width: 1250px) {
+  .poster {
+    flex-basis: 22%;
+  }
+
+  .info .title {
+    font-size: 1.8em;
+  }
+
+  .info .year {
+    font-size: 1.2em;
+  }
+
+  .plot span {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 1000px) {
+  .poster {
+    flex-basis: 23%;
+  }
+
+  .info .title {
+    font-size: 1.6em;
+  }
+
+  .info .year {
+    font-size: 1.1em;
+  }
+
+  .info .genre {
+    font-size: 1em;
+  }
+
+  .plot span {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 800px) {
+  .overview {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .poster {
+    align-self: center;
+    width: 45%;
+    margin-bottom: 2%;
+  }
+}
+
+@media (max-width: 450px) {
+  .poster {
+    align-self: center;
+    width: 40%;
+    margin-bottom: 2%;
+  }
+
+  .info .title {
+    font-size: 1.4em;
+  }
+
+  .info .year {
+    font-size: 1em;
+  }
+  .plot span {
+    font-size: 1em;
+  }
+}
+
+/* VIDEOS */
+
+.videos {
+  position: relative;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  grid-column-start: 2;
+  min-height: 40vh;
+  overflow: hidden;
+}
+
+.video-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 300ms ease-in;
+}
+
+.video-slide iframe {
+  flex: none;
+  width: 49.5%;
+  height: auto;
+}
+
+.video-slide .spacer {
+  flex: none;
+  width: 1%;
+}
+
+@media (max-width: 800px) {
+  .video-slide iframe {
+    width: 100%;
+  }
+
+  .video-slide .spacer {
+    width: 0%;
+  }
+}
+
+div .prev-btn {
+  position: absolute;
+  color: white;
+  top: 48%;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+  font-size: 36px;
+}
+
+div .next-btn {
+  position: absolute;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 48%;
+  color: white;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+  font-size: 36px;
+}
+
+@media (max-width: 1000px) {
+  div .prev-btn {
+    opacity: 1;
+    font-size: 24px;
+  }
+
+  div .next-btn {
+    opacity: 1;
+    font-size: 24px;
+  }
+}
+
+.videos:hover .prev-btn,
+.videos:hover .next-btn {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  cursor: pointer;
+}
+
+/* PICTURES */
+.picture {
+  margin-top: 1%;
+  margin-bottom: 5%;
+  grid-column-start: 2;
+  height: 66vh;
+}
+
+.picture-container {
+  margin-top: 0.5%;
+  display: flex;
+  height: 48%;
+  overflow: hidden;
+}
+
+.picture-container .image {
+  position: relative;
+  flex: none;
+  flex-basis: 24.5%;
+  height: 100%;
+  margin-right: 0.5%;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .picture-container .image {
+    flex-basis: 49.5%;
+    margin-right: 0.5%;
+  }
+}
+
+@media (max-width: 500px) {
+  .picture-container .image {
+    flex-basis: 100%;
+  }
+}
+
+.picture-container .image:hover {
+  outline: 2px solid #c7493a;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+
+.picture-container .image img {
+  position: absolute;
+  margin-left: -50%;
+  margin-top: -20%;
+}
+
+/* CAST  */
+
+.cast {
+  position: relative;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  position: relative;
+  grid-column-start: 2;
+  overflow: hidden;
+}
+
+.cast-container {
+  display: flex;
+}
+
+.cast-container .artist {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  width: 12%;
+  margin-left: 0.25%;
+  margin-right: 0.25%;
+}
+
+.cast-container .artist:hover {
+  outline: 2px solid #c7493a;
+  cursor: pointer;
+  transition: outline 150ms ease-in;
+}
+
+.artist .artist-image {
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+
+.artist .artist-description {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.artist-description .cast-name {
+  color: black;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.artist-description .cast-character {
+  color: #161616;
+  font-size: 1em;
+  font-weight: lighter;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+@media (max-width: 1300px) {
+  .cast-container .artist {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    width: 16.2%;
+    margin-left: 0.25%;
+    margin-right: 0.25%;
+  }
+
+  .artist-description .cast-name {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 750px) {
+  .cast-container .artist {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    width: 19.5%;
+    margin-left: 0.25%;
+    margin-right: 0.25%;
+  }
+
+  .artist-description .cast-name {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 580px) {
+  .cast-container .artist {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    width: 24.5%;
+    margin-left: 0.25%;
+    margin-right: 0.25%;
+  }
+}
+
+/* DETAILS */
+.details {
+  margin-top: 1%;
+  margin-bottom: 5%;
+  grid-column-start: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.details .details-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 2%;
+  justify-content: flex-start;
+}
+
+.details-row span {
+  color: #c7493a;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 1%;
+  flex-basis: 20%;
+}
+
+.details-row .data-container {
+  flex-basis: 80%;
+  padding: 0;
+}
+
+.details-row data {
+  font-size: 1.2em;
+  color: white;
+  align-self: flex-end;
+}
+
+@media (max-width: 800px) {
+  .details .details-row {
+    margin-bottom: 3%;
+  }
+
+  .details-row span {
+    font-size: 1.2em;
+  }
+
+  .details-row data {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .details .details-row {
+    margin-bottom: 4%;
+  }
+
+  .details-row span {
+    font-size: 1em;
+  }
+
+  .details-row data {
+    font-size: 0.9em;
+  }
+}
+
+/* SEASONS */
+.seasons-container {
+  margin-top: 1%;
+  margin-bottom: 5%;
+  grid-column-start: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.season {
+  position: relative;
+  display: flex;
+  flex-basis: 48%;
+  margin-top: 1em;
+  margin-right: 2%;
+  outline: none;
+  transition: outline 150ms ease-in;
+  overflow: hidden;
+  max-height: 280px;
+  overflow-y: scroll;
+}
+
+.season img {
+  max-height: 280px;
+  position: sticky;
+  top: 0px;
+}
+
+.season:hover {
+  outline: 2px solid #c7493a;
+  cursor: pointer;
+  transition: outline 150ms ease-in;
+}
+
+.season .season-name {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: white;
+  display: block;
+  margin-left: 0.5em;
+}
+
+.season .episode-count {
+  color: #c7493a;
+  font-size: 1em;
+  margin-left: 0.5em;
+  margin-bottom: 1em;
+  display: block;
+}
+
+.season .season-overview {
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-left: 0.5em;
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .season .season-name {
+    font-size: 1.2em;
+  }
+
+  .season .episode-count {
+    font-size: 0.9em;
+  }
+
+  .season .season-overview {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 1000px) {
+  .season {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+  }
+
+  .season img {
+    position: relative;
+    width: 50%;
+    max-height: 200px;
+    align-self: center;
+    margin-bottom: 5%;
+  }
+}
+
+@media (max-width: 550px) {
+  .season {
+    flex-basis: 100%;
+    margin-bottom: 5%;
+  }
+
+  .season img {
+    width: 38%;
+  }
+}
+
+/* SEASON MODAL */
+.season-modal-background {
+  position: fixed;
+  top: 0px;
+  z-index: 9;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.closeIcon {
+  color: white;
+  align-self: flex-end;
+  margin-right: 0.4em;
+  margin-top: 0.4em;
+}
+
+.closeIcon:hover {
+  color: #c7493a;
+  cursor: pointer;
+  transition: color 100ms ease-in;
+}
+
+.season-modal {
+  position: fixed;
+  top: 0px;
+  width: 82%;
+  height: 100vh;
+  margin-left: 9%;
+  background: black;
+  z-index: 10;
+  overflow-y: scroll;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+
+.season-modal .episode {
+  display: flex;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.episode .episode-name {
+  color: white;
+  font-size: 1.4em;
+  font-weight: bold;
+  display: block;
+}
+
+.episode .episode-num {
+  color: #c7493a;
+  display: block;
+}
+
+.episode .episode-overview {
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  padding-right: 0.5em;
+  margin-top: 1em;
+}
+
+@media (max-width: 800px) {
+  .season-modal .episode {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4%;
+  }
+
+  .episode .episode-name {
+    font-size: 1.2em;
+  }
+
+  .season-modal .episode img {
+    width: 90%;
+    height: auto;
+    align-self: center;
+  }
+}
