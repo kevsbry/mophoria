@@ -11,7 +11,7 @@ import Discover from "./components/pages/discover/Discover";
 import Movies_Tvs from "./components/pages/movies_tvs/Movies_Tvs";
 import People from "./components/pages/people/People";
 
-const SearchBackground = props => {
+const SearchBackground = (props) => {
   return <div className="search-background"></div>;
 };
 
@@ -21,7 +21,7 @@ function App() {
       <SearchBackground />
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/mophoria" component={Home} />
         <Route path="/movie/:movieID" component={Movie} />
         <Route path="/tv/:tvID" component={Tv} />
         <Route path="/image/:imagePath" component={Image} />
