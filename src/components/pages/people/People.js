@@ -6,7 +6,7 @@ import Title from "../../globalComponents/Title";
 import Copyright from "../../globalComponents/Copyright";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
-const Person = props => {
+const Person = (props) => {
   const { personID, picturePath, name, knownFor } = props;
 
   return (
@@ -40,7 +40,7 @@ const Person = props => {
   );
 };
 
-const Pagination = props => {
+const Pagination = (props) => {
   const { pages, currentPage } = props;
 
   return (
@@ -53,11 +53,6 @@ const Pagination = props => {
               <Link
                 to={`/people/${currentPage - 1}`}
                 className={style["page-link"]}
-                onClick={() => {
-                  setTimeout(() => {
-                    window.location.reload();
-                  }, 100);
-                }}
               >
                 {"<"}
               </Link>
@@ -71,11 +66,6 @@ const Pagination = props => {
                     ? style["page-link-active"]
                     : style["page-link"]
                 }
-                onClick={() => {
-                  setTimeout(() => {
-                    window.location.reload();
-                  }, 100);
-                }}
               >
                 {p}
               </Link>
@@ -86,11 +76,6 @@ const Pagination = props => {
               <Link
                 to={`/people/${parseInt(currentPage) + 1}`}
                 className={style["page-link"]}
-                onClick={() => {
-                  setTimeout(() => {
-                    window.location.reload();
-                  }, 100);
-                }}
               >
                 {">"}
               </Link>
@@ -107,7 +92,7 @@ export class People extends Component {
     apiKey: "325d84ad33eb95a5c0fc5427ba3f569a",
     people: [],
     currentPage: "",
-    pages: [1, 2, 3, 4, 5, 6, 7, 8]
+    pages: [1, 2, 3, 4, 5, 6, 7, 8],
   };
 
   async componentDidMount() {
@@ -122,7 +107,7 @@ export class People extends Component {
 
       this.setState(() => {
         return {
-          pages: [...tempPages]
+          pages: [...tempPages],
         };
       });
     }
@@ -133,15 +118,15 @@ export class People extends Component {
       .get(
         `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=${page}`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
             people: [...res.data.results],
-            currentPage: page
+            currentPage: page,
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
     console.log(this.state.currentPage);
   }
 
@@ -154,7 +139,7 @@ export class People extends Component {
         <Title titleName="Popular" />
         <Pagination pages={pages} currentPage={currentPage} />
         <div className={style["people-container"]}>
-          {people.map(p => (
+          {people.map((p) => (
             <Person
               key={p.id}
               personID={p.id}
