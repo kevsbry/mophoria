@@ -195,10 +195,7 @@ class Navbar extends Component {
           />
 
           <span className="logo">
-            <Link
-              to="/mophoria"
-              style={{ textDecoration: "none", color: "#C7493A" }}
-            >
+            <Link to="/" style={{ textDecoration: "none", color: "#C7493A" }}>
               Mophoria{" "}
             </Link>
           </span>
@@ -209,7 +206,14 @@ class Navbar extends Component {
             onClick={this.onClickLink}
           >
             {this.state.Nav.map((nav, i) => (
-              <Link key={i} className="link" to={nav.link}>
+              <Link
+                key={i}
+                className="link"
+                to={nav.link}
+                onClick={() => {
+                  setTimeout(() => window.location.reload(), 500);
+                }}
+              >
                 {nav.name}
               </Link>
             ))}

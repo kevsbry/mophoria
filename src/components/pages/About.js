@@ -31,7 +31,7 @@ export class About extends Component {
         <div style={style.container}>
           <span style={style.text}>
             This the first react project I created a few months ago while being
-            quarantine, this is just for fun and practice purposes.
+            in quarantine, this is just for fun and practice purposes.
           </span>
           <a
             style={style.link}
