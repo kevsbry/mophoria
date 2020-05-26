@@ -15,10 +15,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.1"
   },
-  "homepage": "https://kevsbry.github.io/mophoria",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
