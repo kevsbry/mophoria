@@ -25,14 +25,14 @@ export class Movie extends Component {
     posters: [],
     backdrops: [],
     cast: [],
-    crew: []
+    crew: [],
   };
 
   setImages = (posters, backdrops) => {
     this.setState(() => {
       return {
         posters: [...posters],
-        backdrops: [...backdrops]
+        backdrops: [...backdrops],
       };
     });
   };
@@ -41,7 +41,7 @@ export class Movie extends Component {
     this.setState(() => {
       return {
         cast: [...cast],
-        crew: [...crew]
+        crew: [...crew],
       };
     });
   };
@@ -77,14 +77,14 @@ export class Movie extends Component {
       .get(
         `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=en-US`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            details: res.data
+            details: res.data,
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -93,7 +93,7 @@ export class Movie extends Component {
         <PictureModal
           ref={{
             firstRef: this.pictureModalBackground,
-            secondRef: this.pictureModal
+            secondRef: this.pictureModal,
           }}
           posters={this.state.posters}
           backdrops={this.state.backdrops}

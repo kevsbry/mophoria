@@ -35,7 +35,7 @@ const SeasonModal = React.forwardRef((props, ref) => {
         <CloseIcon className={style.closeIcon} onClick={closeModal} />
         <Title titleName={props.seasonName} />
         {props.episodes &&
-          props.episodes.map(ep => (
+          props.episodes.map((ep) => (
             <div className={style.episode}>
               <img
                 src={`https://image.tmdb.org/t/p/w300/${ep.still_path}`}
@@ -45,7 +45,7 @@ const SeasonModal = React.forwardRef((props, ref) => {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  marginLeft: "1em"
+                  marginLeft: "1em",
                 }}
               >
                 <span className={style["episode-name"]}>{ep.name}</span>
@@ -76,14 +76,14 @@ class Tv extends React.Component {
     posters: [],
     backdrops: [],
     cast: [],
-    crew: []
+    crew: [],
   };
 
   setImages = (posters, backdrops) => {
     this.setState(() => {
       return {
         posters: [...posters],
-        backdrops: [...backdrops]
+        backdrops: [...backdrops],
       };
     });
   };
@@ -92,12 +92,12 @@ class Tv extends React.Component {
     this.setState(() => {
       return {
         cast: [...cast],
-        crew: [...crew]
+        crew: [...crew],
       };
     });
   };
 
-  setModalVisible = ref => {
+  setModalVisible = (ref) => {
     ref.background.current.style.visibility = "visible";
     ref.background.current.style.opacity = "1";
     ref.background.current.style.transition = "all 200ms ease-in";
@@ -110,36 +110,36 @@ class Tv extends React.Component {
   openPictureModal = () => {
     this.setModalVisible({
       background: this.pictureModalBackground,
-      modal: this.pictureModal
+      modal: this.pictureModal,
     });
   };
 
   openCastModal = () => {
     this.setModalVisible({
       background: this.castModalBackground,
-      modal: this.castModal
+      modal: this.castModal,
     });
   };
 
   openSeasonModal = async (seasonNum, seasonName) => {
     this.setModalVisible({
       background: this.seasonModalBackground,
-      modal: this.seasonModal
+      modal: this.seasonModal,
     });
     const { apiKey, tvID } = this.state;
     await axios
       .get(
         `https://api.themoviedb.org/3/tv/${tvID}/season/${seasonNum}?api_key=${apiKey}&language=en-US`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
             seasonEpisodes: res.data.episodes,
-            selectedSeasonName: seasonName
+            selectedSeasonName: seasonName,
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
     this.seasonModal.current.scrollTop = 0;
   };
 
@@ -156,14 +156,14 @@ class Tv extends React.Component {
       .get(
         `https://api.themoviedb.org/3/tv/${tvID}?api_key=${apiKey}&language=en-US`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            details: res.data
+            details: res.data,
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -172,7 +172,7 @@ class Tv extends React.Component {
         <PictureModal
           ref={{
             firstRef: this.pictureModalBackground,
-            secondRef: this.pictureModal
+            secondRef: this.pictureModal,
           }}
           posters={this.state.posters}
           backdrops={this.state.backdrops}
@@ -186,7 +186,7 @@ class Tv extends React.Component {
         <SeasonModal
           ref={{
             background: this.seasonModalBackground,
-            modal: this.seasonModal
+            modal: this.seasonModal,
           }}
           episodes={this.state.seasonEpisodes}
           seasonName={this.state.selectedSeasonName}

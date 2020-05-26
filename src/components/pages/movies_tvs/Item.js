@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./movies_tvs.module.css";
 
 export class Item extends Component {
-  getYear = date => {
+  getYear = (date) => {
     let str = String(date);
     return str.substring(0, 4);
   };

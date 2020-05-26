@@ -4,7 +4,7 @@ import style from "./discover.module.css";
 import axios from "axios";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
-const Item = props => {
+const Item = (props) => {
   const { type, itemID, title, vote, date } = props;
 
   return (
@@ -30,7 +30,7 @@ export class ItemList extends Component {
     if (this.state.maxItems === 10) {
       this.setState(() => {
         return {
-          maxItems: 20
+          maxItems: 20,
         };
       });
       this.arrowDown.current.style.transform = "rotate(180deg)";
@@ -38,7 +38,7 @@ export class ItemList extends Component {
     } else if (this.state.maxItems === 20) {
       this.setState(() => {
         return {
-          maxItems: 10
+          maxItems: 10,
         };
       });
       this.arrowDown.current.style.transform = "rotate(0deg)";
@@ -48,7 +48,7 @@ export class ItemList extends Component {
 
   state = {
     items: [],
-    maxItems: 10
+    maxItems: 10,
   };
 
   async componentDidMount() {
@@ -57,12 +57,12 @@ export class ItemList extends Component {
 
     await axios
       .get(apiURL)
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return { items: res.data.results };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     console.log(this.state.items);
   }

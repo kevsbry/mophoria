@@ -7,10 +7,10 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import CloseIcon from "@material-ui/icons/Close";
 import "./style.css";
 
-const Carousel = props => {
+const Carousel = (props) => {
   return (
     <div className="carousel-slide">
-      {props.content.map(c => (
+      {props.content.map((c) => (
         <React.Fragment key={c.id}>
           <img
             className="poster"
@@ -30,7 +30,7 @@ const Carousel = props => {
 };
 
 //overlay
-const PosterOverlay = props => {
+const PosterOverlay = (props) => {
   return (
     <div className="poster-overlay">
       {props.movie.map((m, i) => (
@@ -42,7 +42,7 @@ const PosterOverlay = props => {
   );
 };
 
-const BackdropOverlay = props => {
+const BackdropOverlay = (props) => {
   return (
     <div className="backdrop-overlay">
       <PlayArrowIcon
@@ -61,7 +61,7 @@ const BackdropOverlay = props => {
 };
 
 //prev and next btn
-const PrevBtn = props => {
+const PrevBtn = (props) => {
   return (
     <div className="prev-btn" onClick={props.onPrevClick}>
       <NavigateBeforeIcon className="featured-prev" />
@@ -69,7 +69,7 @@ const PrevBtn = props => {
   );
 };
 
-const NextBtn = props => {
+const NextBtn = (props) => {
   return (
     <div className="next-btn" onClick={props.onNextClick}>
       <NavigateNextIcon className="featured-next" />
@@ -78,7 +78,7 @@ const NextBtn = props => {
 };
 
 //modal
-const ModalVideo = props => {
+const ModalVideo = (props) => {
   return (
     <div className="modal">
       <div className="close">
@@ -134,7 +134,7 @@ class Featured extends React.Component {
   };
 
   onWindowClick = () =>
-    window.addEventListener("click", e => {
+    window.addEventListener("click", (e) => {
       if (e.target.tagName === "HTML") {
         const modal = document.querySelector(".modal");
         modal.classList.remove("modal-active");
@@ -146,7 +146,7 @@ class Featured extends React.Component {
     currentMovieIndex: 0,
     currentVideoKey: "",
     currentVideoType: "",
-    trending: []
+    trending: [],
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -158,13 +158,13 @@ class Featured extends React.Component {
             this.state.trending[this.state.currentMovieIndex].id
           }/videos?api_key=${this.props.apiKey}&language=en-US`
         )
-        .then(res => {
+        .then((res) => {
           this.setState({
             currentVideoKey: res.data.results[0].key,
-            currentVideoType: res.data.results[0].type
+            currentVideoType: res.data.results[0].type,
           });
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     }
   }
 
@@ -174,14 +174,14 @@ class Featured extends React.Component {
       .get(
         `https://api.themoviedb.org/3/trending/movie/day?api_key=${this.props.apiKey}`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            trending: [...res.data.results]
+            trending: [...res.data.results],
           };
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
 
@@ -192,13 +192,13 @@ class Featured extends React.Component {
           this.state.trending[this.state.currentMovieIndex].id
         }/videos?api_key=${this.props.apiKey}&language=en-US`
       )
-      .then(res => {
+      .then((res) => {
         this.setState({
           currentVideoKey: res.data.results[0].key,
-          currentVideoType: res.data.results[0].type
+          currentVideoType: res.data.results[0].type,
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     this.setState({});
 
@@ -235,7 +235,7 @@ class Featured extends React.Component {
 }
 
 Featured.propTypes = {
-  apiKey: PropsTypes.string.isRequired
+  apiKey: PropsTypes.string.isRequired,
 };
 
 export default Featured;

@@ -7,7 +7,7 @@ const Select = React.forwardRef((props, ref) => {
   const { placeholder, type } = props;
   return (
     <select
-      onChange={e => {
+      onChange={(e) => {
         props.onChangeGenre(e.target.value);
       }}
       ref={ref}
@@ -19,7 +19,7 @@ const Select = React.forwardRef((props, ref) => {
       <option value="All">All</option>
 
       {type === "genre"
-        ? props.options.map(op => (
+        ? props.options.map((op) => (
             <option key={op.id} value={op.id}>
               {op.name}
             </option>
@@ -33,7 +33,7 @@ const Select = React.forwardRef((props, ref) => {
   );
 });
 
-const InputSelect = props => {
+const InputSelect = (props) => {
   const { type, options, placeholder, onChange } = props;
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -41,7 +41,7 @@ const InputSelect = props => {
   const optionContainer = useRef();
   const option = useRef();
 
-  const onChangeInput = e => {
+  const onChangeInput = (e) => {
     setSelectedOption(e.target.value);
   };
 
@@ -49,7 +49,7 @@ const InputSelect = props => {
     optionContainer.current.style.display = "block";
   };
 
-  const onClickOption = e => {
+  const onClickOption = (e) => {
     let textContent = e.target.textContent;
     onChange(e.target.getAttribute("value"));
 
@@ -57,11 +57,9 @@ const InputSelect = props => {
     input.current.value = textContent;
   };
 
-  const capitalize = word => {
+  const capitalize = (word) => {
     let capitalized =
-      String(word)
-        .charAt(0)
-        .toUpperCase() + String(word).slice(1);
+      String(word).charAt(0).toUpperCase() + String(word).slice(1);
     return capitalized;
   };
 
@@ -78,7 +76,7 @@ const InputSelect = props => {
       <div>
         <div ref={optionContainer} className={style["input-select-options"]}>
           {options
-            .filter(op =>
+            .filter((op) =>
               type === "genre"
                 ? String(op.name).includes(capitalize(selectedOption))
                 : op.includes(selectedOption)
@@ -89,7 +87,7 @@ const InputSelect = props => {
                   {op.name}
                 </span>
               ) : (
-                <span value={op} ref={option} onClick={e => onClickOption(e)}>
+                <span value={op} ref={option} onClick={(e) => onClickOption(e)}>
                   {op}
                 </span>
               )
@@ -114,7 +112,7 @@ export class Filter extends Component {
     this.state = {
       years: [...years],
       genres: ["All"],
-      sortBy: ["Latest", "Oldest"]
+      sortBy: ["Latest", "Oldest"],
     };
 
     this.genre = React.createRef();
@@ -128,14 +126,14 @@ export class Filter extends Component {
       .get(
         `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`
       )
-      .then(res =>
+      .then((res) =>
         this.setState(() => {
           return {
-            genres: [...res.data.genres]
+            genres: [...res.data.genres],
           };
         })
       )
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -145,7 +143,7 @@ export class Filter extends Component {
       <div className={style.filter}>
         <div ref={this.inputContainer} className={style["input-container"]}>
           <input
-            onChange={e => this.props.onSearch(e)}
+            onChange={(e) => this.props.onSearch(e)}
             type="text"
             placeholder="Keyword"
           />

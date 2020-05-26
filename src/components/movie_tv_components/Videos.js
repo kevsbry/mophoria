@@ -4,7 +4,7 @@ import axios from "axios";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
-const PrevButton = props => {
+const PrevButton = (props) => {
   return (
     <div>
       <NavigateBeforeIcon
@@ -15,7 +15,7 @@ const PrevButton = props => {
   );
 };
 
-const NextButton = props => {
+const NextButton = (props) => {
   return (
     <div>
       <NavigateNextIcon className={style["next-btn"]} onClick={props.onNext} />
@@ -25,7 +25,7 @@ const NextButton = props => {
 
 export class Videos extends Component {
   state = {
-    videos: []
+    videos: [],
   };
 
   async componentDidMount() {
@@ -36,14 +36,14 @@ export class Videos extends Component {
 
     await axios
       .get(apiURL)
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            videos: res.data.results
+            videos: res.data.results,
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
     console.log(apiURL);
     //refs
     this.carouselRef = React.createRef();
@@ -69,7 +69,7 @@ export class Videos extends Component {
     return (
       <div className={style.videos}>
         <div ref={this.carouselRef} className={style["video-slide"]}>
-          {this.state.videos.map(v => (
+          {this.state.videos.map((v) => (
             <React.Fragment key={v.id}>
               <iframe
                 src={`https://www.youtube.com/embed/${v.key}`}

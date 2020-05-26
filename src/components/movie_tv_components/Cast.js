@@ -2,7 +2,7 @@ import React from "react";
 import style from "./movie_tv.module.css";
 import axios from "axios";
 
-const Artist = props => {
+const Artist = (props) => {
   return (
     <div
       className={style.artist}
@@ -26,7 +26,7 @@ const Artist = props => {
 class Cast extends React.Component {
   state = {
     cast: [],
-    crew: []
+    crew: [],
   };
 
   async componentDidMount() {
@@ -38,20 +38,20 @@ class Cast extends React.Component {
 
     await axios
       .get(apiURL)
-      .then(res =>
+      .then((res) =>
         this.setState(() => {
           return {
             cast: [...res.data.cast],
-            crew: [...res.data.crew]
+            crew: [...res.data.crew],
           };
         })
       )
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     setCast(this.state.cast, this.state.crew);
   }
 
-  onClickPerson = personID => {
+  onClickPerson = (personID) => {
     window.open(window.origin + "/person/" + personID, "_self");
   };
 
@@ -60,7 +60,7 @@ class Cast extends React.Component {
       <div className={style.cast}>
         <div className={style["cast-container"]}>
           {this.state.cast &&
-            this.state.cast.map(c => (
+            this.state.cast.map((c) => (
               <Artist
                 cast={c}
                 key={c.cast_id}

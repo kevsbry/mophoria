@@ -4,12 +4,12 @@ class Image extends React.Component {
   style = {
     flex: {
       display: "flex",
-      justifyContent: "center"
+      justifyContent: "center",
     },
     image: {
       width: "auto",
-      height: "auto"
-    }
+      height: "auto",
+    },
   };
 
   render() {

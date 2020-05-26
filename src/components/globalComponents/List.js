@@ -4,7 +4,7 @@ import axios from "axios";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 
-const PrevBtn = props => {
+const PrevBtn = (props) => {
   return (
     <div className="theaters-prevBtn" onClick={props.onPrev}>
       <NavigateBeforeIcon className="theaters-prev" />
@@ -12,7 +12,7 @@ const PrevBtn = props => {
   );
 };
 
-const NextBtn = props => {
+const NextBtn = (props) => {
   return (
     <div className="theaters-nextBtn" onClick={props.onNext}>
       <NavigateNextIcon className="theaters-next" />
@@ -45,7 +45,7 @@ class Theaters extends React.Component {
 
   state = {
     inTheaters: [],
-    region: "us"
+    region: "us",
   };
 
   constructor(props) {
@@ -61,14 +61,14 @@ class Theaters extends React.Component {
         this.props.api
         // `https://api.themoviedb.org/3/movie/now_playing?api_key=${this.props.apiKey}&language=en-US&region=${this.state.region}`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            inTheaters: [...res.data.results]
+            inTheaters: [...res.data.results],
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -76,7 +76,7 @@ class Theaters extends React.Component {
       <div className="theaters">
         <React.Fragment>
           <div ref={this.carouselRef} className="theaters-carousel-slide">
-            {this.state.inTheaters.map(m => (
+            {this.state.inTheaters.map((m) => (
               <div key={m.id} className="theaters-poster">
                 <img
                   src={`https://image.tmdb.org/t/p/w342/${m.poster_path}`}
@@ -108,7 +108,7 @@ class Theaters extends React.Component {
 }
 
 Theaters.propTypes = {
-  apiKey: PropTypes.string.isRequired
+  apiKey: PropTypes.string.isRequired,
 };
 
 export default Theaters;

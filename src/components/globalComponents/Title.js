@@ -8,7 +8,7 @@ function Title(props) {
         position: "relative",
         display: "flex",
         alignItems: "center",
-        gridColumnStart: "2"
+        gridColumnStart: "2",
       }}
     >
       <div className={style["title-bar"]}></div>

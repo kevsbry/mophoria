@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./movie_tv.module.css";
 
-const toCurrency = amount => {
+const toCurrency = (amount) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD"
+    currency: "USD",
   });
   return formatter.format(amount);
 };

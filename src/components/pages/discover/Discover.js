@@ -8,7 +8,7 @@ import Copyright from "../../globalComponents/Copyright";
 
 export class Discover extends Component {
   state = {
-    apiKey: "325d84ad33eb95a5c0fc5427ba3f569a"
+    apiKey: "325d84ad33eb95a5c0fc5427ba3f569a",
   };
 
   render() {

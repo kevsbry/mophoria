@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import style from "./movie_tv.module.css";
 
-const getYear = date => {
+const getYear = (date) => {
   let string = String(date);
   return string.substring(0, 4);
 };
 
-const Season = props => {
+const Season = (props) => {
   const { poster, seasonName, date, episodeCount, overview } = props;
   return (
     <div
@@ -28,7 +28,7 @@ const Season = props => {
                 style={{
                   fontSize: "1.2rem",
                   fontWeight: "lighter",
-                  marginLeft: "0.5em"
+                  marginLeft: "0.5em",
                 }}
               >
                 ({getYear(date)})
@@ -51,7 +51,7 @@ export class Seasons extends Component {
     return (
       <div className={style["seasons-container"]}>
         {seasons &&
-          seasons.map(s => (
+          seasons.map((s) => (
             <Season
               seasonNumber={s.season_number}
               poster={s.poster_path}

@@ -54,9 +54,9 @@ const Biography = React.forwardRef((props, ref) => {
 });
 
 //Personal Details Component
-const PersonalDetails = props => {
+const PersonalDetails = (props) => {
   const { details } = props;
-  const loopNames = names => {
+  const loopNames = (names) => {
     let finalNames = "";
     for (let i = 0; i < names.length; i++) {
       finalNames += names[i];
@@ -93,11 +93,11 @@ const PersonalDetails = props => {
 };
 
 // Filmography Component
-const Filmography = props => {
+const Filmography = (props) => {
   return (
     <div className={style.filmography}>
       {props.cast &&
-        props.cast.map(c => (
+        props.cast.map((c) => (
           <div
             className={style.project}
             onClick={() => {
@@ -114,7 +114,7 @@ const Filmography = props => {
 };
 
 // Pictures Component
-const Pictures = props => {
+const Pictures = (props) => {
   const { pictures, onClickPicture } = props;
   return (
     <div className={style.pictures}>
@@ -147,7 +147,7 @@ class Person extends React.Component {
     personDetails: {},
     filmography: [],
     pictures: [],
-    isBiographyOverflow: false
+    isBiographyOverflow: false,
   };
 
   isOverflow = false;
@@ -196,47 +196,47 @@ class Person extends React.Component {
       .get(
         `https://api.themoviedb.org/3/person/${personID}?api_key=${apiKey}&language=en-US`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            personDetails: res.data
+            personDetails: res.data,
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     //movie credits
     await axios
       .get(
         `https://api.themoviedb.org/3/person/${personID}/movie_credits?api_key=${apiKey}&language=en-US`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            filmography: res.data
+            filmography: res.data,
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     //pictures
     await axios
       .get(
         `https://api.themoviedb.org/3/person/${personID}/images?api_key=${apiKey}`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            pictures: [...res.data.profiles]
+            pictures: [...res.data.profiles],
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     this.manipulateDOM();
   }
 
-  onClickPicture = imagePath => {
+  onClickPicture = (imagePath) => {
     window.open(window.origin + "/image" + imagePath, "_blank");
   };
 
@@ -247,7 +247,7 @@ class Person extends React.Component {
           ref={{
             biography: this.biography,
             image: this.biographyImage,
-            arrowDown: this.arrowDown
+            arrowDown: this.arrowDown,
           }}
           details={this.state.personDetails}
           onClickArrowDown={this.onClickArrowDown}

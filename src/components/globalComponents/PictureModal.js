@@ -3,10 +3,10 @@ import style from "./global.module.css";
 import Title from "./Title";
 import CloseIcon from "@material-ui/icons/Close";
 
-const PosterRow = props => {
+const PosterRow = (props) => {
   return (
     <div className={style["poster-row"]}>
-      {props.posters.map(p => (
+      {props.posters.map((p) => (
         <img
           src={`https://image.tmdb.org/t/p/w185/${p.file_path}`}
           alt="poster image"
@@ -19,10 +19,10 @@ const PosterRow = props => {
   );
 };
 
-const BackdropRow = props => {
+const BackdropRow = (props) => {
   return (
     <div className={style["backdrop-row"]}>
-      {props.backdrops.map(b => (
+      {props.backdrops.map((b) => (
         <img
           src={`https://image.tmdb.org/t/p/w300/${b.file_path}`}
           onClick={() => {
@@ -45,7 +45,7 @@ const ModalBackground = React.forwardRef((props, ref) => {
         top: "0px",
         background: "rgba(0, 0, 0, 0.6)",
         zIndex: 20,
-        visibility: "hidden"
+        visibility: "hidden",
       }}
       onClick={props.closeModal}
     ></div>
@@ -56,7 +56,7 @@ const PictureModal = React.forwardRef((props, ref) => {
   //   const modalBackground = React.createRef();
   //   const pictureModal = React.createRef();
 
-  const openNewWindow = imgPath => {
+  const openNewWindow = (imgPath) => {
     window.open(window.origin + "/image" + imgPath, "_blank");
   };
 

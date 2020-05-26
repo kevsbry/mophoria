@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import style from "./movie_tv.module.css";
 
-const PictureContainer = props => {
+const PictureContainer = (props) => {
   return (
     <div className={style["picture-container"]}>
       {props.pictures.map(
@@ -26,7 +26,7 @@ const PictureContainer = props => {
 class Picture extends Component {
   state = {
     backdrops: [],
-    posters: []
+    posters: [],
   };
 
   async componentDidMount() {
@@ -38,20 +38,20 @@ class Picture extends Component {
 
     await axios
       .get(apiURL)
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
             backdrops: [...res.data.backdrops],
-            posters: [...res.data.posters]
+            posters: [...res.data.posters],
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     this.props.setImages(this.state.posters, this.state.backdrops);
   }
 
-  onImageClick = imagePath => {
+  onImageClick = (imagePath) => {
     window.open(window.origin + "/image" + imagePath, "_blank");
   };
 

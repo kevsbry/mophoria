@@ -15,7 +15,7 @@ class Movies_Tvs extends React.Component {
     currentTitle: "Popular",
     selectedGenreID: "All",
     selectedYear: "All",
-    type: this.props.type
+    type: this.props.type,
   };
 
   async componentDidMount() {
@@ -25,31 +25,31 @@ class Movies_Tvs extends React.Component {
       .get(
         `https://api.themoviedb.org/3/${type}/popular?api_key=${apiKey}&language=en-US&page=1`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
             items: res.data.results,
             itemsCopy: res.data.results,
-            initialItemsValue: res.data.results
+            initialItemsValue: res.data.results,
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
-  getYear = date => {
+  getYear = (date) => {
     let str = String(date);
     return str.substring(0, 4);
   };
 
   // SEARCH AND FILTER ONSEARCH
-  onSearch = async e => {
+  onSearch = async (e) => {
     //change items on search
     if (e.target.value === "") {
       this.setState(() => {
         return {
           items: [...this.state.initialItemsValue],
-          currentTitle: "Popular"
+          currentTitle: "Popular",
         };
       });
     } else {
@@ -57,26 +57,26 @@ class Movies_Tvs extends React.Component {
         .get(
           `https://api.themoviedb.org/3/search/${this.state.type}?api_key=${this.state.apiKey}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
         )
-        .then(res => {
+        .then((res) => {
           this.setState(() => {
             return {
               items:
                 this.state.selectedYear === "All"
                   ? res.data.results
                   : res.data.results.filter(
-                      d =>
+                      (d) =>
                         this.getYear(d.release_date) === this.state.selectedYear
                     ),
-              currentTitle: "Search Result"
+              currentTitle: "Search Result",
             };
           });
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
 
       //set itemsCopy after items is set to new values
       this.setState(() => {
         return {
-          itemsCopy: [...this.state.items]
+          itemsCopy: [...this.state.items],
         };
       });
 
@@ -86,11 +86,11 @@ class Movies_Tvs extends React.Component {
   };
 
   //FILTERS !
-  onChangeGenre = genre => {
+  onChangeGenre = (genre) => {
     if (genre !== this.state.selectedGenreID) {
       this.setState(() => {
         return {
-          selectedGenreID: genre
+          selectedGenreID: genre,
         };
       });
     }
@@ -112,23 +112,23 @@ class Movies_Tvs extends React.Component {
       }
       this.setState(() => {
         return {
-          items: [...newItems]
+          items: [...newItems],
         };
       });
     } else {
       this.setState(() => {
         return {
-          items: [...this.state.itemsCopy]
+          items: [...this.state.itemsCopy],
         };
       });
     }
   };
 
-  onChangeYear = year => {
+  onChangeYear = (year) => {
     if (year !== this.state.selectedYear) {
       this.setState(() => {
         return {
-          selectedYear: year
+          selectedYear: year,
         };
       });
     }
@@ -137,14 +137,14 @@ class Movies_Tvs extends React.Component {
       this.setState(() => {
         return {
           items: this.state.items.filter(
-            item => this.getYear(item.release_date) === year
-          )
+            (item) => this.getYear(item.release_date) === year
+          ),
         };
       });
     } else {
       this.setState(() => {
         return {
-          items: this.state.itemsCopy
+          items: this.state.itemsCopy,
         };
       });
     }

@@ -14,14 +14,14 @@ const ModalBackground = React.forwardRef((props, ref) => {
         top: "0px",
         background: "rgba(0, 0, 0, 0.6)",
         zIndex: 20,
-        visibility: "hidden"
+        visibility: "hidden",
       }}
       onClick={props.closeModal}
     ></div>
   );
 });
 
-const Cast = props => {
+const Cast = (props) => {
   return (
     <div
       className={style.cast}
@@ -61,7 +61,7 @@ const CastModal = React.forwardRef((props, ref) => {
     modal.current.style.transition = "all 200ms ease-in";
   };
 
-  const onClickPerson = personID => {
+  const onClickPerson = (personID) => {
     window.open(window.origin + "/person/" + personID, "block");
   };
 
@@ -76,7 +76,7 @@ const CastModal = React.forwardRef((props, ref) => {
         <CloseIcon className={style.closeIcon} onClick={closeModal} />
         <Title titleName="Cast" />
         <div className={style["cast-container"]}>
-          {cast.map(c => (
+          {cast.map((c) => (
             <Cast
               onClickPerson={onClickPerson}
               castID={c.id}

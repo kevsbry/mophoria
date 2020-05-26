@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import style from "./movie_tv.module.css";
 
-const Poster = props => {
+const Poster = (props) => {
   return (
     <div className={style.poster}>
       <img
@@ -13,7 +13,7 @@ const Poster = props => {
 };
 
 export class Overview extends Component {
-  getYear = d => {
+  getYear = (d) => {
     let date = String(d);
     return date.substring(0, 4);
   };

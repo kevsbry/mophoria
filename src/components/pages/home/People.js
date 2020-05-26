@@ -4,7 +4,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
-const PersonName = props => {
+const PersonName = (props) => {
   return (
     <div className="person-name">
       <span>{props.personName}</span>
@@ -12,7 +12,7 @@ const PersonName = props => {
   );
 };
 
-const PrevButton = props => {
+const PrevButton = (props) => {
   return (
     <div className="people-prev-btn">
       <NavigateBeforeIcon className="people-prev" onClick={props.onPrev} />
@@ -20,7 +20,7 @@ const PrevButton = props => {
   );
 };
 
-const NextButton = props => {
+const NextButton = (props) => {
   return (
     <div className="people-next-btn">
       <NavigateNextIcon className="people-next" onClick={props.onNext} />
@@ -33,7 +33,7 @@ class People extends React.Component {
     super(props);
 
     this.state = {
-      people: []
+      people: [],
     };
 
     this.carouselSlide = React.createRef();
@@ -44,14 +44,14 @@ class People extends React.Component {
       .get(
         `https://api.themoviedb.org/3/trending/person/day?api_key=${this.props.apiKey}`
       )
-      .then(res => {
+      .then((res) => {
         this.setState(() => {
           return {
-            people: [...res.data.results]
+            people: [...res.data.results],
           };
         });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   transformValue = 0;
@@ -70,7 +70,7 @@ class People extends React.Component {
     return (
       <div className="people">
         <div ref={this.carouselSlide} className="people-carousel-slide">
-          {this.state.people.map(p => (
+          {this.state.people.map((p) => (
             <React.Fragment>
               <div
                 className="people-image"
